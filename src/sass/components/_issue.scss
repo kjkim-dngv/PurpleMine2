@@ -127,7 +127,9 @@
     }
   }
 
+  // 상태 컬럼(td.status)과 상세 화면 상태 값에 배지 스타일 적용, 상태별 색상 맵을 기반으로 동적 스타일 생성
   @if $color-status {
+    td.status span,
     .attributes td.status,
     .attributes .attribute.status .value {
       display: inline-block;
@@ -146,6 +148,7 @@
 
     @each $status, $status-colors in $status-colors-map {
       &.#{$status} {
+        td.status span,
         .attributes td.status,
         .attributes .attribute.status .value {
           background-color: map-get($status-colors, background);
@@ -167,7 +170,8 @@
 
     th,
     td {
-      padding: $issue-attribute-padding-v $issue-attribute-padding-h $issue-attribute-padding-v 0;
+      padding: $issue-attribute-padding-v $issue-attribute-padding-h
+        $issue-attribute-padding-v 0;
       text-align: left;
       vertical-align: top;
     }
@@ -253,7 +257,8 @@
 
     .label,
     .value {
-      padding: $issue-attribute-padding-v $issue-attribute-padding-h $issue-attribute-padding-v 0;
+      padding: $issue-attribute-padding-v $issue-attribute-padding-h
+        $issue-attribute-padding-v 0;
     }
 
     .label {
@@ -610,7 +615,12 @@ div.thumbnails {
       > .gravatar {
         top: 0;
         margin-top: $line-height-computed - $bubble-gravatar-size;
-        margin-left: -($bubble-gravatar-size + $bubble-gravatar-space + $bubble-padding-horizontal + 1px);
+        margin-left: -(
+          $bubble-gravatar-size +
+          $bubble-gravatar-space +
+          $bubble-padding-horizontal +
+          1px
+        );
         float: left;
       }
     }
@@ -656,7 +666,8 @@ div.thumbnails {
   }
 
   form {
-    padding: $bubble-padding-vertical $bubble-padding-horizontal $bubble-padding-horizontal;
+    padding: $bubble-padding-vertical $bubble-padding-horizontal
+      $bubble-padding-horizontal;
     background-color: $bubble-bg;
 
     > p {
